@@ -1,33 +1,11 @@
-import PropTypes from 'prop-types'
+import Task from './Task'
 
-
-const task = [
-    {
-        id: 1,
-        text: 'Doctors Appointment',
-        day: 'Feb 1st at 12:30pm', 
-        reminder: true,
-    },
-
-    {
-        id: 2,
-        text: 'Doctors Appointment',
-        day: 'Feb 2nd at 13:30pm', 
-        reminder: true,
-    },
-
-    {
-        id: 3,
-        text: 'Doctors Appointment',
-        day: 'Feb 3rd at 16:00pm', 
-        reminder: false,
-    }
-]
-
-const Tasks = () => {
+const Tasks = ({ tasks, onDelete }) => {
     return (
         <div>
-            
+         {tasks.map((task) => (
+             <Task key={task.id} task={task} onDelete={onDelete}/>
+         ))}   
         </div>
     )
 }
